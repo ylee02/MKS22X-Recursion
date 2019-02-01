@@ -7,7 +7,10 @@ public class recursion{
 
     */
     public static double sqrt(double n, double tolerance){
+        return sqrth(n, tolerance, 1);
 
+    }
+    public static double sqrth(double n, double tol, double guess) {
 
     }
 
