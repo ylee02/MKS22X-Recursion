@@ -11,7 +11,10 @@ public class recursion{
 
     }
     public static double sqrth(double n, double tol, double guess) {
-
+      if (abs(guess - n) / n <= tol){
+        return guess;
+      }
+      return sqrth(n, tol, (n / guess + guess) / 2);
     }
 
     /*Recursively find the n'th fibbonaci number in linear time
