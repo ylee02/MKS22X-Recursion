@@ -8,6 +8,7 @@ public class recursion{
     */
     public static double sqrt(double n, double tolerance){
 
+
     }
 
     /*Recursively find the n'th fibbonaci number in linear time
@@ -17,7 +18,13 @@ public class recursion{
      *precondition: n is non-negative
      */
     public static int fib(int n){
-
+      if (n == 0) {
+        return 0;
+      }
+      if (n < 2) {
+        return 1;
+      }
+      return fib(n-1) + fib(n-2);
     }
 
     /*As Per classwork*/
