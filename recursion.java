@@ -12,7 +12,7 @@ public class recursion{
 
     }
     public static double sqrth(double n, double tol, double guess) {
-      if (Math.abs(guess - n) / n <= tol){
+      if (Math.abs(guess * guess - n) / n <= tol){
         return guess;
       }
       return sqrth(n, tol, (n / guess + guess) / 2);
@@ -35,7 +35,21 @@ public class recursion{
     }
 
     /*As Per classwork*/
-    public static ArrayList<Integer> makeAllSums(){
+    public static ArrayList<Integer> makeAllSums(int n){
+		ArrayList<Integer> ans = new ArrayList<>();
+		helpermAS(ans, n, 0);
+		return ans;
     }
+	
+	public static boolean helpermAS(ArrayList<Integer> ans, int n, int counter) {
+		if (n == 0) {
+			if (! ans.contains(counter)) {
+				return ans.add(counter);
+			}
+			return true;
+		}
+		return helpermAS(ans, n - 1, counter + n) && helpermAS(ans, n - 1, counter);
+	}
+			
 
 }
