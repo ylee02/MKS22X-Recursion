@@ -68,14 +68,18 @@ public class recursion{
 
     */
     public static double sqrt(double n, double tolerance){
-        return sqrth(n, tolerance, 1);
+        if (n == 0) {
+			return 0.0;
+		}
+		double guess = n / 2;
+		return sqrth(n,tolerance,guess);
 
     }
     public static double sqrth(double n, double tol, double guess) {
-      if (Math.abs(guess * guess - n) / n <= tol || guess == 0){
-        return guess;
+      if (Math.abs(Math.pow(guess, 2) - n) / n > tol){
+        return sqrth(n, tol, (n / guess + guess) / 2);
       }
-      return sqrth(n, tol, (n / guess + guess) / 2);
+      return guess;
     }
 
     /*Recursively find the n'th fibbonaci number in linear time
